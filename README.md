@@ -1,4 +1,4 @@
-# Setup of react dependencies, packages and configs
+# 🚀 Setup of react dependencies, packages and configs
 
 - Contains all the required packages that is to be installed for a scalabale web application, from setup to testing the application.
 
@@ -91,7 +91,7 @@ npm i @babel/preset-react
 ```
 - include it in the babel.config.js
 ```
-    ['@babel/preset-react', { runtime: 'automatic' }],
+['@babel/preset-react', { runtime: 'automatic' }],
 ```
 
 
@@ -99,6 +99,28 @@ npm i @babel/preset-react
 ```
 npm i -D @testing-library/jest-dom
 ```
+## ⚠️ Important things to know while writing larger and more complex test cases ! 
+> [!NOTE]
+> To use fetch() or any other state updates wrap the component in act();
+> ```
+> import {act} from 'react-dom/test-utils';
+> ```
+> ```
+> async () => {
+> await act ( async () => render(<Component /> ))
+> };
+> ```
 
-
+> [!IMPORTANT]  
+> ERROR: ReferenceError: TextEncoder is not defined
+> ```
+> npm install jest-fixed-jsdom --save-dev
+> ```
+> Go to jest.config.js and add
+> ```
+> module.exports = {
+>  testEnvironment: 'jest-fixed-jsdom',
+> }
+> ```
+ 
 ### You are now good to go for building a SPA that is scalable and dynamic 🚀
